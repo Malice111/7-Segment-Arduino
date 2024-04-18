@@ -1,5 +1,4 @@
 const int pins[] = {7,/*A*/ 6,/*B*/ 5,/*C*/ 11,/*D*/ 10,/*E*/ 8,/*F*/ 9,/*G*/ 4/*DP*/};
-
 const int displayDelay = 2000; 
 
 const int displayNumbers[][8] = {
@@ -35,20 +34,21 @@ void cleanDisplay() {
   }
 }
 
-void tripleBar() {
-  digitalWrite(pins[0], HIGH); // A
-  delay(100);
-  digitalWrite(pins[6], HIGH); // G
-  delay(100);
-  digitalWrite(pins[3], HIGH); // D
+void pulsePin(int pin, bool state, int duration) {
+  digitalWrite(pin, state);
+  delay(duration);
 }
+
+void tripleBar() {
+  pulsePin(pins[0], HIGH, 100); // A
+  pulsePin(pins[6], HIGH, 100); // G
+  pulsePin(pins[3], HIGH, 100); // D
+}
+
 void cleanTriple() {
-  digitalWrite(pins[3], LOW); // D
-  delay(100);
-  digitalWrite(pins[6], LOW); // G
-  delay(100);
-  digitalWrite(pins[0], LOW); // A
-  delay(100);
+  pulsePin(pins[3], LOW, 100); // D
+  pulsePin(pins[6], LOW, 100); // G
+  pulsePin(pins[0], LOW, 100); // A
 }
 
 void setup() {
