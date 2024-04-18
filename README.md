@@ -1,0 +1,3 @@
+- Fast and lightweight 7-segment display code, for displaying numbers and decimal points!
+- Compatible with all arduino boards
+- Make a commit if you have any improvments
